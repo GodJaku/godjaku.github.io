@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/main.css" rel="stylesheet">
+  </head>
+ <body>
+ 	<div id="nav" align="center">
+ 		<div id="logo">
+			<span align="center" text-color="white">logo</span>
+		</div>
+		<div align="center">
+			<ul>
+	 			<li><a href="#">회사소개</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">연혁</a></li>
+			 			<li><a href="#">CEO</a></li>
+			 			<li><a href="#">조직도</a></li>
+			 			<li><a href="#">오시는길</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">취급품목</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">품목별 검색</a></li>
+			 			<li class="member" style="display:none;"><a href="#">회원사 현항</a></li>
+			 			<li class="member" style="display:none;"><a href="#">제조사 현황</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">게시판</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">공지사항</a></li>
+			 			<li class="member" style="display:none;"><a href="#">삽니다</a></li>
+			 			<li class="member" style="display:none;"><a href="#">팝니다</a></li>
+			 			<li class="member" style="display:none;"><a href="#">견적문의</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">이용안내</a>
+			 		<ul class="navitem">
+			 			<li><a href="#">사이트 이용안내</a></li>
+			 			<li><a href="#">FAQ</a></li>
+			 			<li><a href="#">질문과 답변</a></li>
+			 			<li><a href="#">홍보마당</a></li>
+			 		</ul>
+	 			</li>
+	 		</ul>
+		</div>
+	 	<button class="login" onclick="showhidden()">Login</button>
+ 	</div>
+ 	<div id="content">
+ 	</div>
+ 	<script>
+ 		function showhidden(){
+ 			var es= document.getElementsByClassName("member");
+ 			for(var i=0; i<es.length; i++) es[i].style.display= "block";
+ 		}
+ 	</script>
+ </body>
+ </html>

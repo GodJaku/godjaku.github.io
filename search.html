@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/search.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+ <body>
+ 	<div id="nav" align="center">
+ 		<div id="logo" style="margin-left: 100px">
+		</div>
+		<div align="center">
+			<ul>
+	 			<li><a href="#">회사소개</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">연혁</a></li>
+			 			<li><a href="#">CEO</a></li>
+			 			<li><a href="#">조직도</a></li>
+			 			<li><a href="#">오시는길</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">취급품목</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">품목별 검색</a></li>
+			 			<li class="member" style="display:none;"><a href="#">회원사 현항</a></li>
+			 			<li class="member" style="display:none;"><a href="#">제조사 현황</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">게시판</a>
+	 				<ul class="navitem">
+			 			<li><a href="#">공지사항</a></li>
+			 			<li class="member" style="display:none;"><a href="#">삽니다</a></li>
+			 			<li class="member" style="display:none;"><a href="#">팝니다</a></li>
+			 			<li class="member" style="display:none;"><a href="#">견적문의</a></li>
+			 		</ul>
+	 			</li>
+	 			<li><a href="#">이용안내</a>
+			 		<ul class="navitem">
+			 			<li><a href="#">사이트 이용안내</a></li>
+			 			<li><a href="#">FAQ</a></li>
+			 			<li><a href="#">질문과 답변</a></li>
+			 			<li><a href="#">홍보마당</a></li>
+			 		</ul>
+	 			</li>
+	 		</ul>
+		</div>
+	 	<button class="login btn btn-primary" onclick="showhidden()">Login</button>
+ 	</div>
+ 	<div id="content">
+ 		<div class="search">
+ 			<input id="searchinput" type="text" name="part-search" placeholder="Enter a name of parts for searching" onkeyup="input_change(this);">
+ 			<!-- <a id="searchbtn" href="javascript:searchStart();"></a> -->
+ 			<button id="searchbutton" class="btn btn-primary" onclick="searchStart();" disabled><span id="searchbtn_span" class="glyphicon glyphicon-search"></span> Search</button>
+ 		</div>
+ 		<div id="result" align="center">
+ 		</div>
+ 	</div>
+ 	<script>
+ 		var searchbtn= document.getElementById("searchbtn");
+ 		var checked= 0;
+ 		function showhidden(){
+ 			var es= document.getElementsByClassName("member");
+ 			for(var i=0; i<es.length; i++) es[i].style.display= "block";
+ 		}
+ 		function input_change(input){
+ 			if(input.value.length > 0) document.getElementById("searchbutton").disabled= false;
+ 			else document.getElementById("searchbutton").disabled= true;
+ 		}
+ 		function searchStart(){
+ 			$.getJSON("./example.json", function(json){
+ 				var result= "<table class='col-xs-6 col-xs-offset-3' align='center' cellpadding='10px'>";
+ 				result += "<tr><th class='col-xs-1'><span class='glyphicon glyphicon-check'></span></th><th class='col-xs-2'>Part Name</th><th class='col-xs-1'>V</th><th class='col-xs-1'>A</th><th class='col-xs-1'>A</th>";
+ 				for(var index in json){
+ 					result= result + "<tr><td><input type='checkbox' name='check"+index+"' onchange='select_check(this);'></td>";
+ 					result += "<td><a href='./sample.pdf' target='_blank' download>";
+ 					result += json[index].Part;
+ 					result += "</a></td><td>";
+ 					result += json[index].V;
+ 					result += "</td><td>";
+ 					result += json[index].A1;
+ 					result += "</td><td>";
+ 					result += json[index].A2;
+ 					result += "</td></tr>";
+ 				}
+ 				result += "</table>";
+
+ 				result += "<input type='submit' id='send' class='btn btn-primary col-xs-offset-6' value='견적요청하기' disabled>";
+
+ 				document.getElementById("result").innerHTML = result;
+ 			});
+ 		}
+ 		function select_check(obj){
+ 			if(obj.checked) checked++;
+ 			else checked--;
+ 			if(checked > 0) document.getElementById("send").disabled= false;
+ 		}
+ 	</script>
+ </body>
+ </html>
