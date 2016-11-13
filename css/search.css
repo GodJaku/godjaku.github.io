@@ -19,6 +19,9 @@ input[type=checkbox]{
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+input[type=submit]{
+	margin-bottom: 30px;
+}
 #searchbtn{
 	color: #f0f0f0;
 	font-size: 30px;
@@ -56,4 +59,10 @@ td > a{
 	text-decoration: none;
 	color: #294791;
 	margin-left: 15px;
+}
+
+#nomatch {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

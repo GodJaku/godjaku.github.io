@@ -1,0 +1,137 @@
+[
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05S",
+    "Package": "MB10S",
+    "V": 1000,
+    "A1": 0.8,
+    "A2": 30
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05SN",
+    "Package": "MB10SN",
+    "V": 1000,
+    "A1": 0.5,
+    "A2": 25
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05MU",
+    "Package": "MB10MU",
+    "V": 1000,
+    "A1": 1,
+    "A2": 35
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05MN",
+    "Package": "MB10MN",
+    "V": 1000,
+    "A1": 0.5,
+    "A2": 25
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05MA",
+    "Package": "MB10MA",
+    "V": 1000,
+    "A1": 1,
+    "A2": 35
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05M",
+    "Package": "MB10M",
+    "V": 1000,
+    "A1": 0.8,
+    "A2": 30
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "MB05FU",
+    "Package": "MB10FU",
+    "V": 1000,
+    "A1": 1,
+    "A2": 35
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBPC50",
+    "Package": "",
+    "V": "",
+    "A1": 50,
+    "A2": 400
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBPC35",
+    "Package": "",
+    "V": "",
+    "A1": 35,
+    "A2": 400
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBPC25",
+    "Package": "",
+    "V": "",
+    "A1": 25,
+    "A2": 300
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBPC4005G",
+    "Package": "KBP410G",
+    "V": 1000,
+    "A1": 4,
+    "A2": 120
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBPC4006G",
+    "Package": "KBP410",
+    "V": 1000,
+    "A1": 4,
+    "A2": 80
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBP3005G",
+    "Package": "KBP310G",
+    "V": 1000,
+    "A1": 3,
+    "A2": 80
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBP3006G",
+    "Package": "KBP310",
+    "V": 1000,
+    "A1": 3,
+    "A2": 60
+  },
+  {
+    "Productor": "DIYI",
+    "Type": "RECTIFIER",
+    "Model": "KBP2005",
+    "Package": "KBP210",
+    "V": 1000,
+    "A1": 2,
+    "A2": 50
+  }
+]

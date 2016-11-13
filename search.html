@@ -54,8 +54,8 @@
  	</div>
  	<div id="content">
  		<div class="search">
+ 			<!-- <select id="type"  -->
  			<input id="searchinput" type="text" name="part-search" placeholder="Enter a name of parts for searching" onkeyup="input_change(this);">
- 			<!-- <a id="searchbtn" href="javascript:searchStart();"></a> -->
  			<button id="searchbutton" class="btn btn-primary" onclick="searchStart();" disabled><span id="searchbtn_span" class="glyphicon glyphicon-search"></span> Search</button>
  		</div>
  		<div id="result" align="center">
@@ -69,18 +69,54 @@
  			for(var i=0; i<es.length; i++) es[i].style.display= "block";
  		}
  		function input_change(input){
- 			if(input.value.length > 0) document.getElementById("searchbutton").disabled= false;
- 			else document.getElementById("searchbutton").disabled= true;
+ 			// if(input.value.length > 0) document.getElementById("searchbutton").disabled= false;
+ 			// else document.getElementById("searchbutton").disabled= true;
+ 			$.getJSON("./sample.json", function(json){
+ 				var result= "<table class='col-xs-8 col-xs-offset-2' align='center' cellpadding='10px'>";
+ 				result += "<tr><th class='col-xs-1'><span class='glyphicon glyphicon-check'></span></th><th class='col-xs-1'>Productor</th><th class='col-xs-1'>Type</th><th class='col-xs-1'>Model</th><th class='col-xs-1'>Package</th><th class='col-xs-1'>V</th><th class='col-xs-1'>A</th><th class='col-xs-1'>A</th>";
+ 				var count= 0;
+
+ 				for(var index in json){
+ 					if(json[index].Model.includes(input.value)){
+	 					result= result + "<tr><td><input type='checkbox' name='check"+index+"' onchange='select_check(this);'></td>";
+	 					result += "<td><a href='./sample.pdf' target='_blank' download>";
+	 					result += json[index].Productor;
+	 					result += "</a></td><td>";
+	 					result += json[index].Type;
+	 					result += "</td><td>";
+	 					result += json[index].Model;
+	 					result += "</td><td>";
+	 					result += json[index].Package;
+	 					result += "</td><td>";
+	 					result += json[index].V;
+	 					result += "</td><td>";
+	 					result += json[index].A1;
+	 					result += "</td><td>";
+	 					result += json[index].A2;
+	 					result += "</td></tr>";
+	 					count++;
+ 					}
+ 				}
+ 				if(count == 0) result += "<tr><td colspan='8' id='nomatch'>No Matched Data!</td></tr></table>"
+ 				else  result += "</table><input type='submit' id='send' class='btn btn-primary col-xs-offset-7' value='견적요청하기' disabled>";
+ 				document.getElementById("result").innerHTML = result;
+ 			});
  		}
  		function searchStart(){
- 			$.getJSON("./example.json", function(json){
- 				var result= "<table class='col-xs-6 col-xs-offset-3' align='center' cellpadding='10px'>";
- 				result += "<tr><th class='col-xs-1'><span class='glyphicon glyphicon-check'></span></th><th class='col-xs-2'>Part Name</th><th class='col-xs-1'>V</th><th class='col-xs-1'>A</th><th class='col-xs-1'>A</th>";
+ 			$.getJSON("./sample.json", function(json){
+ 				var result= "<table class='col-xs-8 col-xs-offset-2' align='center' cellpadding='10px'>";
+ 				result += "<tr><th class='col-xs-1'><span class='glyphicon glyphicon-check'></span></th><th>Productor</th><th>Type</th><th>Model</th><th class='col-xs-2'>Package</th><th class='col-xs-1'>V</th><th class='col-xs-1'>A</th><th class='col-xs-1'>A</th>";
  				for(var index in json){
  					result= result + "<tr><td><input type='checkbox' name='check"+index+"' onchange='select_check(this);'></td>";
- 					result += "<td><a href='./sample.pdf' target='_blank' download>";
- 					result += json[index].Part;
- 					result += "</a></td><td>";
+ 					result += "<td>";
+ 					result += json[index].Productor;
+ 					result += "</td><td>";
+ 					result += json[index].Type;
+ 					result += "</td><td>";
+ 					result += json[index].Model;
+ 					result += "</td><td>";
+ 					result += json[index].Package;
+ 					result += "</td><td>";
  					result += json[index].V;
  					result += "</td><td>";
  					result += json[index].A1;
@@ -90,7 +126,7 @@
  				}
  				result += "</table>";
 
- 				result += "<input type='submit' id='send' class='btn btn-primary col-xs-offset-6' value='견적요청하기' disabled>";
+ 				result += "<input type='submit' id='send' class='btn btn-primary col-xs-offset-8' value='견적요청하기' disabled>";
 
  				document.getElementById("result").innerHTML = result;
  			});
