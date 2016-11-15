@@ -77,7 +77,7 @@
  				var count= 0;
 
  				for(var index in json){
- 					if(json[index].Model.includes(input.value)){
+ 					if(json[index].Productor.includes(input.value) || json[index].Type.includes(input.value) || json[index].Model.includes(input.value) || json[index].Package.includes(input.value) || json[index].V.includes(input.value) || json[index].A1.includes(input.value) || json[index].A2.includes(input.value)){
 	 					result= result + "<tr><td><input type='checkbox' name='check"+index+"' onchange='select_check(this);'></td>";
 	 					result += "<td><a href='./sample.pdf' target='_blank' download>";
 	 					result += json[index].Productor;
