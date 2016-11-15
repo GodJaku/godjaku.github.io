@@ -77,7 +77,9 @@
  				var count= 0;
 
  				for(var index in json){
- 					if(json[index].Productor.includes(input.value) || json[index].Type.includes(input.value) || json[index].Model.includes(input.value) || json[index].Package.includes(input.value) || json[index].V.includes(input.value) || json[index].A1.includes(input.value) || json[index].A2.includes(input.value)){
+ 					var key= input.value.toUpperCase();
+ 					console.log(input.value);
+ 					if(json[index].Productor.toUpperCase().includes(key) || json[index].Type.toUpperCase().includes(key) || json[index].Model.toUpperCase().includes(key) || json[index].Package.toUpperCase().includes(key) || json[index].V.toString().includes(key) || json[index].A1.toString().includes(key) || json[index].A2.toString().includes(key)){
 	 					result= result + "<tr><td><input type='checkbox' name='check"+index+"' onchange='select_check(this);'></td>";
 	 					result += "<td><a href='./sample.pdf' target='_blank' download>";
 	 					result += json[index].Productor;
